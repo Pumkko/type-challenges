@@ -1,5 +1,7 @@
 import type { Alike, Expect } from '@type-challenges/utils'
 
+type T = MyReadonly2<Todo1, 'description'>
+
 type cases = [
   Expect<Alike<MyReadonly2<Todo1>, Readonly<Todo1>>>,
   Expect<Alike<MyReadonly2<Todo1, 'title' | 'description'>, Expected>>,
