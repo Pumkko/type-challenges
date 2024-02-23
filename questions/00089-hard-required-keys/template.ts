@@ -1,1 +1,1 @@
-type RequiredKeys<T> = any
+type RequiredKeys<T extends object> = keyof GetRequired<T>

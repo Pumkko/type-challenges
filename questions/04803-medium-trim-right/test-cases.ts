@@ -1,5 +1,7 @@
 import type { Equal, Expect } from '@type-challenges/utils'
 
+type T = TrimRight<'str     '>
+
 type cases = [
   Expect<Equal<TrimRight<'str'>, 'str'>>,
   Expect<Equal<TrimRight<'str '>, 'str'>>,
