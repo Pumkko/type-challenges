@@ -34,4 +34,4 @@ type AlrightIWontUseTheBuiltInCapitalizeType = {
 
 
 type MyCapitalize<S extends string> = S extends `${infer First}${infer Tail}` ?
-    First extends keyof AlrightIWontUseTheBuiltInCapitalizeType ? `${AlrightIWontUseTheBuiltInCapitalizeType[First]}${Tail}` : Tail : S
+    First extends keyof AlrightIWontUseTheBuiltInCapitalizeType ? `${AlrightIWontUseTheBuiltInCapitalizeType[First]}${Tail}` : S : S
