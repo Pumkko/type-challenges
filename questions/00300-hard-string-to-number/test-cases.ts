@@ -1,5 +1,7 @@
 import type { Equal, Expect } from '@type-challenges/utils'
 
+type T = ToNumber<'0'>
+
 type cases = [
   Expect<Equal<ToNumber<'0'>, 0>>,
   Expect<Equal<ToNumber<'5'>, 5>>,
