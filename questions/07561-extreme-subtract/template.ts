@@ -6,17 +6,13 @@
 // We then just take the length of the resulting array
 
 type ShiftArrayNTimes<T extends unknown[], N extends number, SubArray extends unknown[] = []> =
-    T extends [] 
-        ? SubArray['length'] extends N
+    T extends [infer _, ...infer Tail]
+        ? SubArray['length'] extends N 
+            ? T
+            : ShiftArrayNTimes<Tail, N, [0, ...SubArray]>
+        : SubArray['length'] extends N 
             ? []
             : never
-        : SubArray['length'] extends N
-            ? T
-            : T extends [infer DiscardRoot, ...infer Tail]
-                ? ShiftArrayNTimes<[...Tail], N, [DiscardRoot, ...SubArray]>
-                : T
-
-type TestShift = ShiftArrayNTimes<[1,2,3,4], 3>
 
 type Subtract < M extends number, S extends number, ArrayOfM = ArrayOfSize<M> > = 
     ArrayOfM extends unknown[] 
